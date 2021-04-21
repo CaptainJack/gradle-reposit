@@ -31,4 +31,4 @@ pluginBundle {
 	tags = listOf("capjack")
 }
 
-tasks["postRelease"].dependsOn("publishPlugins")
+tasks["postRelease"].finalizedBy("publishPlugins")
