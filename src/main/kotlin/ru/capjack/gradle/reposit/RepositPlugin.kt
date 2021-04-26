@@ -16,7 +16,7 @@ class RepositPlugin : Plugin<Project> {
 				&& pluginManager.hasPlugin("org.gradle.maven-publish")
 				&& pluginManager.hasPlugin("nebula.release")
 			) {
-				tasks["postRelease"].finalizedBy("publish")
+				tasks["postRelease"].dependsOn("publish")
 			}
 		}
 	}
