@@ -9,16 +9,6 @@ import org.gradle.kotlin.dsl.getByType
 class RepositPlugin : Plugin<Project> {
 	override fun apply(project: Project) {
 		project.extensions.create<RepositExtension>(EXCEPTION, project)
-		
-		project.afterEvaluate {
-			val ext = extensions.getByType<RepositExtension>()
-			if (ext.publishOnNebulaRelease
-				&& pluginManager.hasPlugin("org.gradle.maven-publish")
-				&& pluginManager.hasPlugin("nebula.release")
-			) {
-				tasks["postRelease"].dependsOn("publish")
-			}
-		}
 	}
 	
 	companion object {
